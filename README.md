@@ -1,2 +1,2 @@
 # steak
-Steak data visualized (data from 538)
+Steak data visualized (source: data.fivethirtyeight.com)
