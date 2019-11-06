@@ -23,8 +23,24 @@
 
 <body>
   <nav class = 'navbar navbar-dar bg-dark'>
-    
+    <a href="#" class="navbar-brand">
+      <span class="nav-title">Steak - Data Visualized</span>
+    </a>
   </nav>
+
+  <div class="container-fluid p-5">
+    <div class="jumbotron">
+      <h4> Data on various factors, illustrating their correlation to preferred steak preparation</h4>
+      <p>This dataset contains a number of factors, including whether the subject smokes cigarettes, drinks, alcohol, or has cheated on their spouse.</p>
+    </div>
+    <div class="row">
+      <div id="data-count" class="dc-data-count" style = "float: right; padding-left: 16px;">
+      <span class="filter-count"> selected out of <span class="total-count"></span> | <a href = "javascript:dc.filterAll();
+    dc.renderAll();">Reset All</a>
+    </div>
+    </div>
+  </div>
+
   <h1>Charts here</h1>
   <div id="steak-chart"></div>
   <div id="smoke-chart"></div>
