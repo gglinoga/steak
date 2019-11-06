@@ -70,9 +70,9 @@ crossorigin="anonymous"></script>
   var ndx;
 
   var steakChart = dc.pieChart("#steak-chart");
-  // var smokeChart = dc.rowChart("#smoke-chart");
-  // var drinkChart = dc.rowChart("#drink-chart");
-  // var cheatChart = dc.rowChart("#cheat-chart");
+  var smokeChart = dc.rowChart("#smoke-chart");
+  var drinkChart = dc.rowChart("#drink-chart");
+  var cheatChart = dc.rowChart("#cheat-chart");
 
   d3.csv('steak.csv').then(function(data) {
     console.log('data first length', data.length);
@@ -111,6 +111,27 @@ steakChart
       return d.data.key + ' '+ dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
     })
   });
+
+  smokeChart
+    .height(400)
+    .dimension(smokeDim)
+    .group(smokeGroup)
+    .data(function(group) { return group.top(10)})
+    .elasticX(true);
+
+  drinkChart
+    .height(400)
+    .dimension(drinkDim)
+    .group(drinkGroup)
+    .data(function(group) { return group.top(10)})
+    .elasticX(true);
+
+  cheatChart
+    .height(400)
+    .dimension(cheatDim)
+    .group(cheatGroup)
+    .data(function(group) { return group.top(10)})
+    .elasticX(true);
 
   dc.renderAll();
 });
