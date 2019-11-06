@@ -21,9 +21,11 @@
 </head>
 
 <body>
-  <h1>Line Chart</h1>
-  <div id="test">test</div>
-  <h1>End of Line Chart</h1>
+  <h1>Charts here</h1>
+  <div class="steak-chart"></div>
+  <div class="smoke-chart"></div>
+  <div class="drink-chart"></div>
+  <div class="cheat-chart"></div>
 
   <script src="js/crossfilter.js"></script>
   <script src="js/d3.js"></script>
@@ -43,62 +45,6 @@
     data = _.filter(data, function(d) { return d.id})
   })
 
-
-
-
-    //     var chart = dc.lineChart("#test");
-    // d3.csv("../morsley.csv").then(function(experiments) {
-    //   experiments.forEach(function(x) {
-    //     x.Speed = +x.Speed;
-    //   });
-
-// var experiments = d3.csvParse(d3.select('data').text());
-// experiments.forEach(function(){
-//     x.Speed = +x.Speed;
-// });
-
-//       var ndx                 = crossfilter(experiments),
-//           runDimension        = ndx.dimension(function(d) {return +d.Run;}),
-//           speedSumGroup       = runDimension.group().reduceSum(function(d) {return d.Speed * d.Run / 1000;});
-//       chart
-//         .width(768)
-//         .height(480)
-//         .x(d3.scaleLinear().domain([0,20]))
-//         .curve(d3.curveStepBefore)
-//         .renderArea(true)
-//         .brushOn(false)
-//         .renderDataPoints(true)
-//         .clipPadding(10)
-//         .yAxisLabel("This is the Y Axis!")
-//         .dimension(runDimension)
-//         .group(speedSumGroup);
-//       chart.render();
-// });                   
-    
-        // var experiments = d3.csvParse(d3.select('#data').text());
-
-        //   experiments.forEach(function(x) {
-        //     x.id = +x.id;
-        //   });
-
-        //   var ndx                 = crossfilter(experiments),
-        //       idDimension        = ndx.dimension(function(d) {return +d.id;}),
-        //       idSumGroup       = idDimension.group().reduceSum(function(d) {return d.id * d.id / 1000;});
-
-        //   chart
-        //     .width(768)
-        //     .height(480)
-        //     .x(d3.scaleLinear().domain([6,20]))
-        //     .brushOn(false)
-        //     .yAxisLabel("This is the Y Axis!")
-        //     .dimension(idDimension)
-        //     .group(idSumGroup)
-        //     .on('renderlet', function(chart) {
-        //         chart.selectAll('rect').on("click", function(d) {
-        //             console.log("click!", d);
-        //         });
-        //     });
-        //     chart.render();
   </script>
 </body>
 </html>
