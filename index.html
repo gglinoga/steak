@@ -42,9 +42,44 @@
 
   d3.csv('steak.csv').then(function(data) {
     console.log('data first length', data.length);
-    data = _.filter(data, function(d) { return d.id})
-  })
+    data = _.filter(data, function(d) { return d.id});
+    console.log('data', data.length);
+      
+ 
 
+  ndx = crossfilter(data);
+  var all = ndx.groupAll();
+
+
+var prepSteakDim = ndx.dimension(function(d) { return d["prepSteak"]});
+var prepSteakGroup = prepSteakDim.group();
+
+var smokeDim = ndx.dimension(function(d) { return d["smoke"]});
+var smokeGroup = smokeDim.group();
+
+var drinkDim = ndx.dimension(function(d) { return d["drink"]});
+var drinkGroup = drinkDim.group();
+
+var cheatDim = ndx.dimension(function(d) { return d["cheat"]});
+var cheatGroup = cheatDim.group();
+
+var allDim = ndx.dimension(function(d) { return d;});
+
+steakChart
+  .width(250)
+  .height(250)
+  .slicesCap(5)
+  .innerRadius(60)
+  .dimension(prepSteakDim)
+  .group(prepSteakGroup)
+  .on('pretransition', function(chart) {
+    chart.selectAll('text.pie-slice').text(function(d) {
+      return d.data.key + ' '+ dc.ultils.pringSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
+    })
+  });
+
+  dc.renderAll();
+});
   </script>
 </body>
 </html>
