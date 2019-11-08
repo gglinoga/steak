@@ -31,7 +31,7 @@
 
   <div class="container-fluid p-5">
     <div class="jumbotron">
-      <h4> Data on various factors, illustrating their correlation to preferred steak preparation</h4>
+      <h4>  Steak Preparation Preferences </h4>
       <p>This dataset contains a number of factors, including whether the subject smokes cigarettes, drinks, alcohol, or has cheated on their spouse.</p>
     </div>
     <div class="row">
@@ -44,11 +44,18 @@
 <br></br>
 
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-6">
     Steak
     <br></br>
       <div id="steak-chart"></div>
-    </div>
+  </div>
+  <div class="col-md-6">
+    Income
+    <br><br>
+    <div class="income-chart"></div>
+  </div>
+</div>
+<div class="row">
     <div class="col-md-4">
     Smoke
         <div id="smoke-chart"></div>
@@ -60,8 +67,8 @@
   <div class="col-md-4">
     Cheat
         <div id="cheat-chart"></div>
-      </div>
   </div>
+</div>
 
 </div>
 
@@ -85,11 +92,12 @@ crossorigin="anonymous"></script>
 
   var ndx;
 
+  var dataCount = dc.dataCount("#data-count");
   var steakChart = dc.pieChart("#steak-chart");
   var smokeChart = dc.rowChart("#smoke-chart");
   var drinkChart = dc.rowChart("#drink-chart");
   var cheatChart = dc.rowChart("#cheat-chart");
-  var dataCount = dc.dataCount("#data-count");
+  var incomeChart = dc.barChart("income-chart");
 
   d3.csv('steak.csv').then(function(data) {
     console.log('data first length', data.length);
