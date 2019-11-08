@@ -97,7 +97,7 @@ crossorigin="anonymous"></script>
   var smokeChart = dc.rowChart("#smoke-chart");
   var drinkChart = dc.rowChart("#drink-chart");
   var cheatChart = dc.rowChart("#cheat-chart");
-  var incomeChart = dc.barChart("income-chart");
+  var incomeChart = dc.barChart("#income-chart");
 
   d3.csv('steak.csv').then(function(data) {
     console.log('data first length', data.length);
