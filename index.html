@@ -116,7 +116,7 @@ var prepSteakGroup = prepSteakDim.group();
 
 var incomeDim = ndx.dimension(function(d) {return d["income"]});
 var incomeGroup = incomeDim.group();
-var counterPerIncome = incomeDim.group().reduceCount(function(d) { return d.id})
+var countPerIncome = incomeDim.group().reduceCount();
 
 var smokeDim = ndx.dimension(function(d) { return d["smoke"]});
 var smokeGroup = smokeDim.group();
@@ -158,7 +158,7 @@ incomeChart
   .xAxisPadding('30px')
   .dimension(incomeDim)
   .barPadding(0.1)
-  .group(incomeGroup);
+  .group(countPerIncome);
 
   smokeChart
     .height(400)
