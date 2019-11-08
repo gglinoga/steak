@@ -50,9 +50,9 @@
       <div id="steak-chart"></div>
   </div>
   <div class="col-md-6">
-    Income
+    Gender
     <br><br>
-    <div class="income-chart"></div>
+    <div class="gender-chart"></div>
   </div>
 </div>
 <div class="row">
@@ -97,7 +97,8 @@ crossorigin="anonymous"></script>
   var smokeChart = dc.rowChart("#smoke-chart");
   var drinkChart = dc.rowChart("#drink-chart");
   var cheatChart = dc.rowChart("#cheat-chart");
-  var incomeChart = dc.barChart("#income-chart");
+  // var incomeChart = dc.barChart("#income-chart");
+  var genderChart = dc.pieChart("#gender-chart");
 
   d3.csv('steak.csv').then(function(data) {
     console.log('data first length', data.length);
@@ -116,7 +117,10 @@ var prepSteakGroup = prepSteakDim.group();
 
 var incomeDim = ndx.dimension(function(d) {return d["income"]});
 var incomeGroup = incomeDim.group();
-var countPerIncome = incomeDim.group().reduceCount();
+// var countPerIncome = incomeDim.group().reduceCount();
+
+var genderDim = ndx.dimension(function(d) {return d["gender"]});
+var genderGroup = genderDim.group();
 
 var smokeDim = ndx.dimension(function(d) { return d["smoke"]});
 var smokeGroup = smokeDim.group();
@@ -136,7 +140,7 @@ dataCount
 steakChart
   .width(400)
   .height(400)
-  .slicesCap(5)
+  .slicesCap(10)
   .innerRadius(60)
   .dimension(prepSteakDim)
   .group(prepSteakGroup)
@@ -146,19 +150,31 @@ steakChart
     })
   });
 
-incomeChart
-  .width(400)
-  .height(400)
-  .x(d3.scaleBand())
-  .xUnits(dc.units.ordinal)
-  .brushOn(false)
-  .elasticY(true)
-  .xAxisLabel('Income')
-  .yAxisLabel('Number of Respondents')
-  .xAxisPadding('30px')
-  .dimension(incomeDim)
-  .barPadding(0.1)
-  .group(countPerIncome);
+
+  genderChart
+    .width(400)
+    .height(400)
+    .innerRadius(60)
+    .dimension(genderDim)
+    .group(genderGroup)
+    .on('pretransition', function(chart) {
+      chart.selectAll('text.pie-slice').text(function(d) {
+        return d.data.key + ' ' + dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
+      })
+    })
+// incomeChart
+//   .width(400)
+//   .height(400)
+//   .x(d3.scaleBand())
+//   .xUnits(dc.units.ordinal)
+//   .brushOn(false)
+//   .elasticY(true)
+//   .xAxisLabel('Income')
+//   .yAxisLabel('Number of Respondents')
+//   .xAxisPadding('30px')
+//   .dimension(incomeDim)
+//   .barPadding(0.1)
+//   .group(incomeGroup);
 
   smokeChart
     .height(400)
