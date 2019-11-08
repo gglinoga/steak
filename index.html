@@ -52,7 +52,7 @@
   <div class="col-md-6">
     Gender
     <br><br>
-    <div class="gender-chart"></div>
+    <div id="gender-chart"></div>
   </div>
 </div>
 <div class="row">
@@ -159,7 +159,7 @@ steakChart
     .group(genderGroup)
     .on('pretransition', function(chart) {
       chart.selectAll('text.pie-slice').text(function(d) {
-        return d.data.key + ' ' + dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
+      return d.data.key + ' '+ dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
       })
     })
 // incomeChart
