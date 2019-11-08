@@ -113,6 +113,9 @@ crossorigin="anonymous"></script>
 var prepSteakDim = ndx.dimension(function(d) { return d["prepSteak"]});
 var prepSteakGroup = prepSteakDim.group();
 
+var incomeDim = ndx.dimension(function(d) {return d["income"]});
+var incomeGroup = incomeDim.group();
+
 var smokeDim = ndx.dimension(function(d) { return d["smoke"]});
 var smokeGroup = smokeDim.group();
 
@@ -140,6 +143,20 @@ steakChart
       return d.data.key + ' '+ dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
     })
   });
+
+incomeChart
+  .width(400)
+  .height(400)
+  .x(d3.scaleBand())
+  .xUnited(dc.units.ordinal)
+  .brushOn(false)
+  .elasticY(true)
+  .xAxisLabel('Income')
+  .yAxisLabel('Number of Respondents')
+  .xAxisPadding('30px')
+  .dimension(incomeDim)
+  .barPadding(0.1)
+  .group(incomeGroup);
 
   smokeChart
     .height(400)
