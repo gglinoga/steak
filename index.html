@@ -113,6 +113,10 @@ var cheatGroup = cheatDim.group();
 
 var allDim = ndx.dimension(function(d) { return d;});
 
+dataCount
+    .dimension(ndx)
+    .group(ndx.groupAll());
+
 steakChart
   .width(400)
   .height(400)
@@ -146,6 +150,7 @@ steakChart
     .group(cheatGroup)
     .data(function(group) { return group.top(10)})
     .elasticX(true);
+
 
   dc.renderAll();
 });
