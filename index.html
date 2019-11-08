@@ -103,6 +103,7 @@ crossorigin="anonymous"></script>
     console.log('data first length', data.length);
     data = _.filter(data, function(d) { return d.id});
     console.log('data', data.length);
+ 
       
  
 
@@ -115,6 +116,7 @@ var prepSteakGroup = prepSteakDim.group();
 
 var incomeDim = ndx.dimension(function(d) {return d["income"]});
 var incomeGroup = incomeDim.group();
+var counterPerIncome = incomeDim.group().reduceCount(function(d) { return d.id})
 
 var smokeDim = ndx.dimension(function(d) { return d["smoke"]});
 var smokeGroup = smokeDim.group();
