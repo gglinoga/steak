@@ -41,42 +41,44 @@
     dc.renderAll();">Reset All</a>
     </div>
     </div>
-<br></br>
+    <br></br>
 
-<div class="row">
-  <div class="col-md-3">
-    Steak
-    <br></br>
-      <div id="steak-chart"></div>
-  </div>
-  <div class="col-md-6">
-    Income
-    <br></br>
-    <div id="income-chart"></div>
-  </div>
-  <div class="col-md-3">
-    Gender
-    <br><br>
-    <div id="gender-chart"></div>
-  </div>
-</div>
-<div class="row">
-    <div class="col-md-4">
-    Smoke
-    <br></br>
-        <div id="smoke-chart"></div>
+    <div class="row">
+      <div class="col-md-6">
+        Steak
+        <br></br>
+          <div id="steak-chart"></div>
+      </div>
+      <div class="col-md-6">
+        Gender
+        <br><br>
+        <div id="gender-chart"></div>
+      </div>
     </div>
-  <div class="col-md-4">
-    Drink
-    <br></br>
-        <div id="drink-chart"></div>
+    <div class="row">
+      <div class="col-md-12">
+        Income
+        <br></br>
+        <div id="income-chart"></div>
+      </div>
     </div>
-  <div class="col-md-4">
-    Cheat
-    <br></br>
-        <div id="cheat-chart"></div>
-  </div>
-</div>
+    <div class="row">
+        <div class="col-md-4">
+        Smoke
+        <br></br>
+            <div id="smoke-chart"></div>
+        </div>
+      <div class="col-md-4">
+        Drink
+        <br></br>
+            <div id="drink-chart"></div>
+        </div>
+      <div class="col-md-4">
+        Cheat
+        <br></br>
+            <div id="cheat-chart"></div>
+      </div>
+    </div>
 
 </div>
 
@@ -146,8 +148,8 @@ dataCount
     .group(ndx.groupAll());
 
 steakChart
-  .width(400)
-  .height(400)
+  .width(250)
+  .height(250)
   .slicesCap(10)
   .innerRadius(60)
   .dimension(prepSteakDim)
@@ -160,8 +162,8 @@ steakChart
 
 
   genderChart
-    .width(400)
-    .height(400)
+    .width(250)
+    .height(250)
     .innerRadius(60)
     .dimension(genderDim)
     .group(genderGroup)
@@ -170,10 +172,10 @@ steakChart
       return d.data.key + ' '+ dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
       })
     })
-    
+
 incomeChart
-  .width(400)
-  .height(400)
+  .width(1000)
+  .height(1000)
   .x(d3.scaleBand())
   .xUnits(dc.units.ordinal)
   .brushOn(false)
