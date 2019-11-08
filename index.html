@@ -86,6 +86,7 @@ crossorigin="anonymous"></script>
   var smokeChart = dc.rowChart("#smoke-chart");
   var drinkChart = dc.rowChart("#drink-chart");
   var cheatChart = dc.rowChart("#cheat-chart");
+  var dataCount = dc.dataCount("#data-count");
 
   d3.csv('steak.csv').then(function(data) {
     console.log('data first length', data.length);
