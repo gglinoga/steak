@@ -148,8 +148,8 @@ dataCount
     .group(ndx.groupAll());
 
 steakChart
-  .width(250)
-  .height(250)
+  .width(400)
+  .height(400)
   .slicesCap(10)
   .innerRadius(60)
   .dimension(prepSteakDim)
@@ -162,8 +162,8 @@ steakChart
 
 
   genderChart
-    .width(250)
-    .height(250)
+    .width(400)
+    .height(400)
     .innerRadius(60)
     .dimension(genderDim)
     .group(genderGroup)
@@ -174,8 +174,8 @@ steakChart
     })
 
 incomeChart
-  .width(1000)
-  .height(1000)
+  .width(auto)
+  .height(300)
   .x(d3.scaleBand())
   .xUnits(dc.units.ordinal)
   .brushOn(false)
